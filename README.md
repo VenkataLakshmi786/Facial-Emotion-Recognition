@@ -1,48 +1,53 @@
-# Facial-Emotion-Recognition
-# Facial Image Emotion Classification Using Deep Learning and Attention Mechanisms
+# Facial Emotion Recognition Using Deep Learning
 
 ## Overview
-This project focuses on classifying facial images into emotion categories using deep learning architectures. It explores a custom CNN, attention-enhanced pretrained models, and a Vision Transformer (ViT), followed by deployment through a Flask web application.
+This project develops a facial emotion recognition system using deep learning to classify facial images into five emotion categories: Angry, Fear, Happy, Sad, and Suprise. It includes dataset analysis, image preprocessing, model training, performance evaluation, and Flask-based deployment.
+
+## Dataset
+- **Dataset:** [Human Face Emotions](https://www.kaggle.com/datasets/samithsachidanandan/human-face-emotions)
+- **Total Images:** 59,099
+- **Emotion Classes:** 5
 
 ## Project Workflow
-1. **Dataset Analysis:** Examine dataset dimensions, class distribution, image properties, and pixel intensity statistics.
-2. **Exploratory Data Analysis:** Create eight visualizations to analyse class distribution, image dimensions, aspect ratios, pixel intensities, and sample images.
-3. **Preprocessing:** Apply gamma correction, Non-Local Means denoising, image resizing, normalization, and training-time data augmentation.
-4. **Dataset Splitting:** Use stratified splitting with 70% training, 15% validation, and 15% testing.
-5. **Model Development:** Train and evaluate four deep learning architectures:
+1. **Basic Statistics and EDA:** Analyse dataset dimensions, class distribution, image properties, and pixel intensity.
+2. **Preprocessing:** Resize images, convert to grayscale and three channels, apply image sharpening, and normalize pixel values.
+3. **Dataset Splitting:** Stratified split into 70% training, 15% validation, and 15% testing.
+4. **Model Development:** Implement and evaluate:
    - Custom CNN
-   - MobileNetV3-MHA
-   - VGG17-SA
-   - Vision Transformer (ViT)
-6. **Model Evaluation:** Evaluate using Accuracy, Precision, Recall, F1-Score, and Brier Score.
-7. **Visualization and Comparison:** Generate learning curves, classification reports, confusion matrices, ROC curves, and model comparison plots.
-8. **Deployment:** Develop a Flask web application for facial emotion classification.
+   - MobileNetV3 with Multi-Head Attention (MHA)
+   - ResNet18
+5. **Model Evaluation:** Measure Accuracy, Precision, Recall, F1-Score, and Brier Score, supported by evaluation visualizations.
+6. **Deployment:** Integrate the trained ResNet18 model into a Flask web application for facial emotion prediction.
+
+## Model Performance
+
+| Model | Accuracy | F1-Score |
+|---|---:|---:|
+| CNN | 53.94% | 49.21% |
+| MobileNetV3-MHA | 84.50% | 84.46% |
+| ResNet18 | 89.92% | 89.99% |
 
 ## Technologies Used
-- Python
-- TensorFlow / Keras
-- OpenCV
-- NumPy and Pandas
-- Matplotlib and Seaborn
-- Flask
+Python, PyTorch, Torchvision, OpenCV, NumPy, Pandas, Matplotlib, Seaborn, Scikit-learn, Flask, and Pillow.
 
 ## Project Structure
 ```text
-Facial-Image-Emotion-Classification/
+Facial Emotion Recognition/
 │
 ├── Code.ipynb
 ├── Results/
-│   ├── EDA/
-│   ├── Model_Evaluation/
-│   └── Model_Comparison/
+│   ├── EDA and model result images
+│   └── Web application screenshots
 │
-└── Web/
+└── WebApp/
     ├── app.py
+    ├── best_emotion_model.pth
     ├── requirements.txt
-    ├── model/
     ├── templates/
+    │   └── index.html
     └── static/
+        └── uploads/
 ```
 
 ## Objective
-To analyse facial image characteristics, develop and compare multiple deep learning architectures, and deploy an image-based emotion classification system using Flask.
+To develop a deep learning-based facial emotion recognition system and deploy the trained model through an interactive Flask web application.
